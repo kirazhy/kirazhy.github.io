@@ -1,0 +1,25 @@
+{
+  "name": "kirazhy.github.io",
+  "version": "1.0.0",
+  "description": "my project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "pack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirazhy/kirazhy.github.io.git"
+  },
+  "author": "zhy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirazhy/kirazhy.github.io/issues"
+  },
+  "homepage": "https://github.com/kirazhy/kirazhy.github.io#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
