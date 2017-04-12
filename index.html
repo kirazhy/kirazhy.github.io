@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="zhy">
+  <title>ZHY's Personal Website</title>
+  <!-- 引入初始化样式 -->
+  <link href="./static/css/reset.css" rel="stylesheet">
+  <!-- 引入组件库样式 -->
+  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <!-- 引入当前页面样式 -->
+  <link href="./static/css/base.css" rel="stylesheet">
+  <!-- 引入jQuery -->
+  <script src="./static/js/lib/jquery-3.2.1.js"></script>
+  <!-- 引入Vue.js -->
+  <script src="./static/js/lib/vue-2.2.6.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+  <div id="base">
+    <!--页眉-->
+    <el-row id="top">
+      <a href="./template/homePage.html" target="content"><img src="./static/img/myPhoto.png"></a>
+      <div>Welcome to my zone</div>
+    </el-row>
+    <!--导航栏-->
+    <el-row id="nav">
+      <el-menu default-active="1" class="el-menu-demo" mode="horizontal">
+        <el-menu-item v-for="nav in navs" :index="nav.index"><a :href="nav.href" target="content">{{nav.title}}</a></el-menu-item>
+      </el-menu>
+    </el-row>
+    <!--中间内容-->
+    <el-row>
+      <el-col :span="16" :offset="2">
+        <iframe id="content" name="content" scrolling="no" src="./template/homePage.html" @load="changeFrameHeight"></iframe>
+      </el-col>
+      <el-col :span="6">
+        <div></div>
+      </el-col>
+    </el-row>
+    <!--页脚-->
+    <el-row id="footer">
+      <!--系统名称-->
+      <div class="footer-main">
+        <p id="footer-main-title">{{footer_main_title}}</p>
+        <a href="http://kirazhy.github.io/template/index.html" id="footer-main-link" target="_blank">个人网站</a>
+      </div>
+      <!--个人信息-->
+      <div id="footer-social">
+        <div class="popover" v-for="popover in popovers">
+          <el-popover placement="top" :width="popover.width" popper-class="footer-popover" trigger="hover">
+            <div class="footer-popover-title">{{popover.title}}</div>
+            <p v-for="content in popover.contents">{{content}}</p>
+            <i class="pncicon" :class="popover.icon" slot="reference"></i>
+          </el-popover>
+        </div>
+      </div>
+    </el-row>
+  </div>
+</body>
+<!-- 引入当前页面脚本 -->
+<script src="./static/js/zhy/base.js"></script>
+
+</html>

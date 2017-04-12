@@ -1,0 +1,1 @@
+just a static page to introduce my self and to be putted on git webserver

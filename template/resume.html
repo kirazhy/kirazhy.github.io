@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="zhy">
+  <title>Resume</title>
+  <!-- 引入初始化样式 -->
+  <link href="../static/css/reset.css" rel="stylesheet">
+  <!-- 引入组件库样式 -->
+  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <!-- 引入当前页面样式 -->
+  <link href="../static/css/resume.css" rel="stylesheet">
+  <!-- 引入jQuery -->
+  <script src="../static/js/lib/jquery-3.2.1.js"></script>
+  <!-- 引入Vue.js -->
+  <script src="../static/js/lib/vue-2.2.6.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+
+<body>
+  <div id="resume">
+    <div>
+      <header>个人简历</header>
+      <el-table :data="education_information" style="width: 100%" border>
+        <el-table-column label="学历信息">
+          <el-table-column prop="duration" label="年份"></el-table-column>
+          <el-table-column prop="school" label="学校"></el-table-column>
+          <el-table-column prop="academy" label="学院"></el-table-column>
+          <el-table-column prop="major" label="专业"></el-table-column>
+          <el-table-column prop="degree" label="学位"></el-table-column>
+        </el-table-column>
+      </el-table>
+      <el-table :data="project_experience" style="width: 100%" border>
+        <el-table-column label="项目经历">
+          <el-table-column type="expand">
+            <template scope="props">
+              <el-form label-position="left" inline class="demo-table-expand">
+                <el-form-item label="项目名称">
+                  <span>{{ props.row.name }}</span>
+                </el-form-item>
+                <el-form-item label="团队规模">
+                  <span>{{ props.row.team_size }}</span>
+                </el-form-item>
+                <el-form-item label="项目简介">
+                  <span>{{ props.row.introduce }}</span>
+                </el-form-item>
+                <el-form-item label="项目成果">
+                  <span>{{ props.row.result }}</span>
+                </el-form-item>
+              </el-form>
+            </template>
+          </el-table-column>
+          <el-table-column prop="duration" label="年份" width="150px"></el-table-column>
+          <el-table-column prop="name" label="项目名称"></el-table-column>
+          <el-table-column prop="job" label="项目角色"></el-table-column>
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
+</body>
+<!-- 引入当前页面脚本 -->
+<script src="../static/js/zhy/resume.js"></script>
+
+</html>
