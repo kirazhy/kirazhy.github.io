@@ -42,8 +42,7 @@ var base = new Vue({
   methods: {
     changeFrameHeight(event) {
       var mainheight = $(event.target).contents().find("body").height() + 30;
-      //$(event.target).height(mainheight);
-      console.log(mainheight);
+      $(event.target).height(mainheight);
     }
   }
 });
