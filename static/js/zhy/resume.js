@@ -75,6 +75,62 @@ var resume = new Vue({
       team_size: 1,
       introduce: '在前人的基础上，将不易进行维护扩展的代码进行了修改，添加了新的页面以迎合公司的业务扩展',
       result: '顺利完成了PNC官网的整改和功能扩展，添加了动态效果以提高用户的浏览体验'
+    }],
+    level_filter: [{
+      text: '了解',
+      value: '了解'
+    }, {
+      text: '熟悉',
+      value: '熟悉'
+    }, {
+      text: '掌握',
+      value: '掌握'
+    }, {
+      text: '精通',
+      value: '精通'
+    }],
+    //专业技能
+    professional_skill: [{
+      skill: 'HTML5',
+      level: '掌握'
+    }, {
+      skill: 'CSS3',
+      level: '熟悉'
+    }, {
+      skill: 'JavaScript',
+      level: '掌握'
+    }, {
+      skill: 'jQuery',
+      level: '掌握'
+    }, {
+      skill: 'Vue.js',
+      level: '熟悉'
+    }, {
+      skill: 'Office',
+      level: '精通'
+    }, {
+      skill: 'C++',
+      level: '熟悉'
+    }, {
+      skill: 'MFC',
+      level: '了解'
+    }, {
+      skill: 'Java',
+      level: '了解'
+    }, {
+      skill: 'Labview',
+      level: '了解'
+    }, {
+      skill: 'VHDL',
+      level: '熟悉'
+    }, {
+      skill: 'C++',
+      level: '熟悉'
     }]
+  },
+  methods: {
+    filterTag(value, row) {
+      return row.level === value;
+    }
   }
 })

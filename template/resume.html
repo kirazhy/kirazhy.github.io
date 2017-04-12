@@ -61,6 +61,16 @@
           <el-table-column prop="job" label="项目角色"></el-table-column>
         </el-table-column>
       </el-table>
+      <el-table :data="professional_skill" style="width: 100%" border>
+        <el-table-column label="专业技能">
+          <el-table-column prop="skill" label="技能"></el-table-column>
+          <el-table-column prop="level" label="程度" width="100" :filters="level_filter" :filter-method="filterTag">
+            <template scope="props">
+              <el-tag :type="props.row.level === '了解' ? 'gray' : props.row.level === '熟悉' ? 'primary' : props.row.level === '掌握' ? 'success' : 'danger'">{{props.row.level}}</el-tag>
+            </template>
+          </el-table-column>
+        </el-table-column>
+      </el-table>
     </div>
   </div>
 </body>
