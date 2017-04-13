@@ -27,50 +27,59 @@
   <div id="resume">
     <div>
       <header>个人简历</header>
-      <el-table :data="education_information" style="width: 100%" border>
-        <el-table-column label="学历信息">
-          <el-table-column prop="duration" label="年份"></el-table-column>
-          <el-table-column prop="school" label="学校"></el-table-column>
-          <el-table-column prop="academy" label="学院"></el-table-column>
-          <el-table-column prop="major" label="专业"></el-table-column>
-          <el-table-column prop="degree" label="学位"></el-table-column>
-        </el-table-column>
-      </el-table>
-      <el-table :data="project_experience" style="width: 100%" border>
-        <el-table-column label="项目经历">
-          <el-table-column type="expand">
-            <template scope="props">
-              <el-form label-position="left" inline class="demo-table-expand">
-                <el-form-item label="项目名称">
-                  <span>{{ props.row.name }}</span>
-                </el-form-item>
-                <el-form-item label="团队规模">
-                  <span>{{ props.row.team_size }}</span>
-                </el-form-item>
-                <el-form-item label="项目简介">
-                  <span>{{ props.row.introduce }}</span>
-                </el-form-item>
-                <el-form-item label="项目成果">
-                  <span>{{ props.row.result }}</span>
-                </el-form-item>
-              </el-form>
-            </template>
-          </el-table-column>
-          <el-table-column prop="duration" label="年份" width="150px"></el-table-column>
-          <el-table-column prop="name" label="项目名称"></el-table-column>
-          <el-table-column prop="job" label="项目角色"></el-table-column>
-        </el-table-column>
-      </el-table>
-      <el-table :data="professional_skill" style="width: 100%" border>
-        <el-table-column label="专业技能">
-          <el-table-column prop="skill" label="技能"></el-table-column>
-          <el-table-column prop="level" label="程度" width="100" :filters="level_filter" :filter-method="filterTag">
-            <template scope="props">
-              <el-tag :type="props.row.level === '了解' ? 'gray' : props.row.level === '熟悉' ? 'primary' : props.row.level === '掌握' ? 'success' : 'danger'">{{props.row.level}}</el-tag>
-            </template>
-          </el-table-column>
-        </el-table-column>
-      </el-table>
+      <el-tabs type="border-card">
+        <el-tab-pane label="个人信息">
+          <el-form label-position="left" inline>
+            <el-form-item label="姓名">
+              <span>{{personal_info.name}}</span>
+            </el-form-item>
+          </el-form>
+        </el-tab-pane>
+        <el-tab-pane label="学历信息">
+          <el-table :data="education_information" style="width: 100%" border>
+            <el-table-column prop="duration" label="年份"></el-table-column>
+            <el-table-column prop="school" label="学校"></el-table-column>
+            <el-table-column prop="academy" label="学院"></el-table-column>
+            <el-table-column prop="major" label="专业"></el-table-column>
+            <el-table-column prop="degree" label="学位"></el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane label="项目经验">
+          <el-table :data="project_experience" style="width: 100%" border>
+            <el-table-column type="expand">
+              <template scope="props">
+                <el-form label-position="left" inline class="project-table-expand">
+                  <el-form-item label="项目名称">
+                    <span>{{props.row.name}}</span>
+                  </el-form-item>
+                  <el-form-item label="团队规模">
+                    <span>{{props.row.team_size}}</span>
+                  </el-form-item>
+                  <el-form-item label="项目简介">
+                    <span>{{props.row.introduce}}</span>
+                  </el-form-item>
+                  <el-form-item label="项目成果">
+                    <span>{{props.row.result}}</span>
+                  </el-form-item>
+                </el-form>
+              </template>
+            </el-table-column>
+            <el-table-column prop="duration" label="年份" width="150px"></el-table-column>
+            <el-table-column prop="name" label="项目名称"></el-table-column>
+            <el-table-column prop="job" label="项目角色"></el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane label="专业技能">
+          <el-table :data="professional_skill" style="width: 100%" border>
+            <el-table-column prop="skill" label="技能"></el-table-column>
+            <el-table-column prop="level" label="程度" width="100" :filters="level_filter" :filter-method="filterTag">
+              <template scope="props">
+                  <el-tag :type="props.row.level === '了解' ? 'gray' : props.row.level === '熟悉' ? 'primary' : props.row.level === '掌握' ? 'success' : 'danger'">{{props.row.level}}</el-tag>
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </body>

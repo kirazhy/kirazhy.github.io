@@ -1,6 +1,8 @@
 var base = new Vue({
   el: '#base',
   data: {
+    //版本
+    version: 1.1,
     //导航栏
     navs: [
       {
@@ -14,8 +16,6 @@ var base = new Vue({
         href: './template/resume.html'
       }
     ],
-    //页脚标题
-    footer_main_title: "Huayi Zhang's 1.0 Personal Website",
     //页脚popover
     popovers: [
       {

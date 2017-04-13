@@ -1,6 +1,9 @@
 var resume = new Vue({
   el: '#resume',
   data: {
+    personal_info: {
+      name: '张华一'
+    },
     //学历信息
     education_information: [{
       duration: '2014.9-2017.3',
@@ -76,6 +79,7 @@ var resume = new Vue({
       introduce: '在前人的基础上，将不易进行维护扩展的代码进行了修改，添加了新的页面以迎合公司的业务扩展',
       result: '顺利完成了PNC官网的整改和功能扩展，添加了动态效果以提高用户的浏览体验'
     }],
+    //专业技能分级
     level_filter: [{
       text: '了解',
       value: '了解'
