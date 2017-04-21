@@ -49,8 +49,8 @@ var base = new Vue({
   methods: {
     /*上传服务器时调用*/
     changeFrameHeight(event) {
-//      var mainheight = $(event.target).contents().find("body").height();
-//      $(event.target).height(mainheight);
+      var mainheight = $(event.target).contents().find("body").height();
+      $(event.target).height(mainheight);
     },
     //鼠标进入menu则i旋转
     iSpin(event) {
