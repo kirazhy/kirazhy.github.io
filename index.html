@@ -12,8 +12,11 @@
   <link href="./static/css/reset.css" rel="stylesheet">
   <!-- 引入组件库样式 -->
   <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <!--font-awesome图标库-->
+  <link href="./static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
   <link href="./static/css/base.css" rel="stylesheet">
+  <link href='http://cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.css' rel='stylesheet' type='text/css' />
   <!-- 引入jQuery -->
   <script src="./static/js/lib/jquery-3.2.1.js"></script>
   <!-- 引入Vue.js -->
@@ -32,13 +35,13 @@
     <!--导航栏-->
     <el-row id="nav">
       <el-menu default-active="1" class="el-menu-demo" mode="horizontal">
-        <el-menu-item v-for="nav in navs" :index="nav.index"><a :href="nav.href" target="content">{{nav.title}}</a></el-menu-item>
+        <el-menu-item v-for="nav in navs" :index="nav.index"><a :href="nav.href" target="content" @mouseenter="iSpin" @mouseleave="iStop"><i class="fa fa-lg" :class="nav.icon"></i>{{nav.title}}</a></el-menu-item>
       </el-menu>
     </el-row>
     <!--中间内容-->
     <el-row>
       <el-col :span="16" :offset="2">
-        <iframe id="content" name="content" scrolling="no" src="./template/homePage.html" @load="changeFrameHeight"></iframe>
+        <iframe id="content" name="content" scrolling="no" border="0" src="./template/homePage.html" @load="changeFrameHeight"></iframe>
       </el-col>
       <el-col :span="6">
         <div></div>

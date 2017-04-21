@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'ChannelSlanted2a2e2178b318d15';
+  src: url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.gif?r=41045218749');
+  src: url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.gif?r=41045218749?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.bmp?r=41045218749') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.jpg?r=41045218749') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.png#ChannelSlanted2') format('svg');
+}
+
+.cssa2e2178b318d15 {
+  font-family: 'ChannelSlanted2a2e2178b318d15';
+}
+
+
+/*页眉*/
+
 #top {
   height: 100px;
   background-color: #20a0ff;
@@ -11,13 +24,17 @@
 }
 
 #top div {
+  font-family: 'ChannelSlanted2a2e2178b318d15s';
   font-size: 30px;
   position: absolute;
   width: 400px;
   left: 50%;
   margin-left: -200px;
 }
+
+
 /*发布时删除*/
+
 iframe {
   /*height: 2000px;*/
   width: 100%;
