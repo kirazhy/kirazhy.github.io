@@ -33,10 +33,18 @@
 }
 
 
+/*导航栏链接*/
+
+.el-menu-item a {
+  display: block;
+  height: 100%;
+}
+
+
 /*发布时删除*/
 
 iframe {
-  /*height: 2000px;*/
+  height: 1000px;
   width: 100%;
 }
 

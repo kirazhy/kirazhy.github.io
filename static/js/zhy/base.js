@@ -2,7 +2,7 @@ var base = new Vue({
   el: '#base',
   data: {
     //版本
-    version: 1.1,
+    version: 1.1.1,
     //导航栏
     navs: [
       {
@@ -16,6 +16,12 @@ var base = new Vue({
         icon: 'fa-address-card',
         title: '自我介绍',
         href: './template/resume.html'
+      },
+      {
+        index:'30',
+        icon:'',
+        title:'another',
+        href:'./template/another.html'
       }
     ],
     //页脚popover
@@ -43,8 +49,8 @@ var base = new Vue({
   methods: {
     /*上传服务器时调用*/
     changeFrameHeight(event) {
-      var mainheight = $(event.target).contents().find("body").height();
-      $(event.target).height(mainheight);
+//      var mainheight = $(event.target).contents().find("body").height();
+//      $(event.target).height(mainheight);
     },
     //鼠标进入menu则i旋转
     iSpin(event) {
