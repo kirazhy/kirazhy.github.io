@@ -2,7 +2,7 @@ var base = new Vue({
   el: '#base',
   data: {
     //版本
-    version: 1.1.1,
+    version: '1.1.1',
     //导航栏
     navs: [
       {
@@ -18,10 +18,10 @@ var base = new Vue({
         href: './template/resume.html'
       },
       {
-        index:'30',
-        icon:'',
-        title:'another',
-        href:'./template/another.html'
+        index: '30',
+        icon: '',
+        title: 'another',
+        href: './template/another.html'
       }
     ],
     //页脚popover
