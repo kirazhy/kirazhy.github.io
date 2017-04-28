@@ -1,8 +1,12 @@
-var resume = new Vue({
+const resume = new Vue({
   el: '#resume',
   data: {
+    //个人信息
     personal_info: {
-      name: '张华一'
+      name: '张华一',
+      sex: '男',
+      birth: '1992.3.23',
+      party: '群众'
     },
     //学历信息
     education_information: [{
@@ -113,9 +117,6 @@ var resume = new Vue({
       skill: 'Office',
       level: '精通'
     }, {
-      skill: 'C++',
-      level: '熟悉'
-    }, {
       skill: 'MFC',
       level: '了解'
     }, {
@@ -133,7 +134,7 @@ var resume = new Vue({
     }]
   },
   methods: {
-    filterTag(value, row) {
+    filterTag: function (value, row) {
       return row.level === value;
     }
   }

@@ -1,64 +1,85 @@
+:root {
+  /*页眉高度*/
+  --header_height: 100px;
+  /*页脚处图表尺寸*/
+  --footericon_size: 32px;
+  /*页脚内容最大宽度*/
+  --footer_max_width: 900px;
+  /*页脚内容高度*/
+  --footer_height: 80px;
+}
+
 @font-face {
-  font-family: 'ChannelSlanted2a2e2178b318d15';
+  font-family: 'ChannelSlanted';
   src: url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.gif?r=41045218749');
   src: url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.gif?r=41045218749?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.bmp?r=41045218749') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.jpg?r=41045218749') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.png#ChannelSlanted2') format('svg');
 }
 
-.cssa2e2178b318d15 {
-  font-family: 'ChannelSlanted2a2e2178b318d15';
+.ChannelSlanted {
+  font-family: 'ChannelSlanted';
 }
 
 
 /*页眉*/
 
-#top {
-  height: 100px;
+header {
+  height: var(--header_height);
   background-color: #20a0ff;
   color: white;
   position: relative;
 }
 
-#top img {
-  height: 100px;
+header img {
+  height: var(--header_height);
   float: left;
 }
 
-#top div {
-  font-family: 'ChannelSlanted2a2e2178b318d15s';
-  font-size: 30px;
+header h1 {
+  font-family: 'ChannelSlanted';
+  font-size: 40px;
   position: absolute;
-  width: 400px;
   left: 50%;
-  margin-left: -200px;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
 /*导航栏链接*/
 
-.el-menu-item a {
+nav .el-menu-item a {
   display: block;
   height: 100%;
 }
 
 
-/*发布时删除*/
+/*发布时删除height*/
 
-iframe {
-  /*height: 1000px;*/
-  width: 100%;
+main {
+  max-width: 100%;
 }
 
-#footer {
-  height: 120px;
+main iframe {
+  /*height: 2000px;*/
+  width: 100%;
+  border: none;
+}
+
+
+/*页脚*/
+
+footer {
+  height: var(--footer_height);
   background-color: black;
   color: grey;
-  width: 100%;
+  max-width: var(--footer_max_width);
+  padding: 30px calc(50% - var(--footer_max_width) / 2);
 }
 
+
+/*左侧名称区*/
+
 #footer-main {
-  font-size: 0;
-  padding-top: 40px;
-  display: inline-block;
+  float: left;
 }
 
 #footer-main-title {
@@ -69,36 +90,35 @@ iframe {
 
 #footer-main-link {
   display: inline-block;
-  margin: 12px 18px 0 0;
-  line-height: 1;
+  margin-top: 8px;
   font-size: 12px;
   color: #768193;
 }
 
+
+/*右侧信息区*/
+
 #footer-social {
   float: right;
+  line-height: var(--footer_height);
 }
 
-.popover {
-  display: inline;
-}
-
-.pncicon {
+.footericon {
   transition: .3s;
   display: inline-block;
-  line-height: 32px;
+  line-height: var(--footericon_size);
   text-align: center;
   color: #8D99AB;
   background-color: transparent;
-  size: 32px;
-  font-size: 32px;
   margin-right: 36px;
+  size: var(--footericon_size);
+  font-size: var(--footericon_size);
   vertical-align: middle;
 }
 
-.pncicon:hover {
+.footericon:hover {
   transform: scale(1.2);
-  color: #fff;
+  color: white;
 }
 
 .footer-popover {

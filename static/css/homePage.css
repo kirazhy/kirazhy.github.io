@@ -1,0 +1,33 @@
+:root {
+  /*内容区域高度*/
+  --content_height: 500px;
+  /*内容区域最大宽度*/
+  --content_max_width: 600px;
+  /*内容区域上下内边距*/
+  --content_padding_top: 80px;
+}
+
+.background {
+  background-size: 100% var(--content_height);
+  background-repeat: no-repeat;
+  height: calc(var(--content_height) - var(--content_padding_top) * 2);
+  width: var(--content_max_width);
+  padding: var(--content_padding_top) calc(50% - var(--content_max_width) / 2);
+}
+
+.content {
+  background: hsla(0, 0%, 100%, .5);
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px auto;
+}

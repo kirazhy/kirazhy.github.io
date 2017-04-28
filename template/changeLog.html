@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="zhy">
-  <title>HomePage</title>
+  <title>changeLog</title>
   <!-- 引入初始化样式 -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <!-- 引入组件库样式 -->
@@ -15,7 +15,7 @@
   <!--font-awesome图标库-->
   <link href="../static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
-  <link href="../static/css/homePage.css" rel="stylesheet">
+  <link href="../static/css/changelog.css" rel="stylesheet">
   <!-- 引入jQuery -->
   <script src="../static/js/lib/jquery-3.2.1.js"></script>
   <!-- 引入Vue.js -->
@@ -26,17 +26,17 @@
 </head>
 
 <body>
-  <div id="home-page">
-    <ul>
-      <li v-for="introduce in introduces" class="background" :style="introduce.background">
-        <div class="content">
-          <h1>{{introduce.title}}</h1>
-          <p>{{introduce.content}}</p>
+  <div id="change-log">
+    <el-carousel :interval="400000" type="card" indicator-position="none" height="200px">
+      <el-carousel-item v-for="change_log in change_logs">
+        <div>
+          <h1>{{change_log.version}}</h1>
+          <h3>{{change_log.change}}</h3>
         </div>
-      </li>
-    </ul>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </body>
-<script src="../static/js/zhy/homePage.js"></script>
+<script src="../static/js/zhy/changeLog.js"></script>
 
 </html>

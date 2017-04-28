@@ -16,7 +16,6 @@
   <link href="./static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
   <link href="./static/css/base.css" rel="stylesheet">
-  <link href='http://cdn.webfont.youziku.com/webfonts/nomal/101653/45817/58f80e62f629d81378fbf9ed.css' rel='stylesheet' type='text/css' />
   <!-- 引入jQuery -->
   <script src="./static/js/lib/jquery-3.2.1.js"></script>
   <!-- 引入Vue.js -->
@@ -28,43 +27,39 @@
 <body>
   <div id="base">
     <!--页眉-->
-    <el-row id="top">
+    <header>
       <a href="./template/homePage.html" target="content"><img src="./static/img/myPhoto.png"></a>
-      <div>Welcome to my zone</div>
-    </el-row>
+      <h1>Welcome to MY Zone</h1>
+    </header>
     <!--导航栏-->
-    <el-row id="nav">
+    <nav>
       <el-menu default-active="1" class="el-menu-demo" mode="horizontal">
-        <el-menu-item v-for="nav in navs" :index="nav.index"><a :href="nav.href" target="content" @mouseenter="iSpin" @mouseleave="iStop"><i class="fa fa-lg" :class="nav.icon"></i>{{nav.title}}</a></el-menu-item>
+        <el-menu-item v-for="nav in navs" :index="nav.index">
+          <a :href="nav.href" target="content" @mouseenter="iSpin" @mouseleave="iStop"><i class="fa fa-lg" :class="nav.icon"></i>{{nav.title}}</a>
+        </el-menu-item>
       </el-menu>
-    </el-row>
+    </nav>
     <!--中间内容-->
-    <el-row id="content">
-      <el-col :span="16" :offset="2">
-        <iframe id="content" name="content" scrolling="no" border="0" src="./template/homePage.html" @load="changeFrameHeight"></iframe>
-      </el-col>
-      <el-col :span="6">
-        <div></div>
-      </el-col>
-    </el-row>
+    <main>
+      <iframe id="content" name="content" scrolling="no" src="./template/homePage.html" @load="changeFrameHeight"></iframe>
+    </main>
     <!--页脚-->
-    <el-row id="footer">
+    <footer>
       <!--系统名称-->
-      <div class="footer-main">
+      <div id="footer-main">
         <p id="footer-main-title">Huayi Zhang's v{{version}} Personal Website</p>
-        <a href="http://kirazhy.github.io/template/index.html" id="footer-main-link" target="_blank">个人网站</a>
+        <a id="footer-main-link" href="http://kirazhy.github.io/index.html" target="_blank">个人网站</a>
       </div>
       <!--个人信息-->
       <div id="footer-social">
-        <div class="popover" v-for="popover in popovers">
-          <el-popover placement="top" :width="popover.width" popper-class="footer-popover" trigger="hover">
-            <div class="footer-popover-title">{{popover.title}}</div>
-            <p v-for="content in popover.contents">{{content}}</p>
-            <i class="pncicon" :class="popover.icon" slot="reference"></i>
-          </el-popover>
-        </div>
+        <el-popover v-for="popover in popovers" placement="top" :width="popover.width" popper-class="footer-popover" trigger="hover">
+          <div class="footer-popover-title">{{popover.title}}</div>
+          <p v-for="content in popover.contents">{{content}}</p>
+          <i class="fa fa-fw footericon" :class="popover.icon" slot="reference"></i>
+        </el-popover>
+        <a href="https://github.com/kirazhy/kirazhy.github.io"><i class="fa fa-fw fa-github footericon"></i></a>
       </div>
-    </el-row>
+    </footer>
   </div>
 </body>
 <!-- 引入当前页面脚本 -->
