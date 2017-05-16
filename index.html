@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="the framework of my website">
   <meta name="author" content="zhy">
   <title>ZHY's Personal Website</title>
-  <!-- 引入初始化样式 -->
+  <!-- 引入reset初始化样式 -->
   <link href="./static/css/reset.css" rel="stylesheet">
-  <!-- 引入组件库样式 -->
+  <!-- 引入element组件库样式 -->
   <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
-  <!--font-awesome图标库-->
+  <!-- 引入font-awesome图标库-->
   <link href="./static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
   <link href="./static/css/base.css" rel="stylesheet">
@@ -20,7 +20,7 @@
   <script src="./static/js/lib/jquery-3.2.1.js"></script>
   <!-- 引入Vue.js -->
   <script src="./static/js/lib/vue-2.2.6.js"></script>
-  <!-- 引入组件库 -->
+  <!-- 引入element组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 
@@ -47,17 +47,17 @@
     <footer>
       <!--系统名称-->
       <div id="footer-main">
-        <p id="footer-main-title">Huayi Zhang's v{{version}} Personal Website</p>
+        <p id="footer-main-title">张华一的个人网站v{{version}}</p>
         <a id="footer-main-link" href="http://kirazhy.github.io/index.html" target="_blank">个人网站</a>
       </div>
       <!--个人信息-->
       <div id="footer-social">
-        <el-popover v-for="popover in popovers" placement="top" :width="popover.width" popper-class="footer-popover" trigger="hover">
+        <el-popover v-for="popover in popovers" placement="top" width="200" popper-class="footer-popover" trigger="hover">
           <div class="footer-popover-title">{{popover.title}}</div>
           <p v-for="content in popover.contents">{{content}}</p>
           <i class="fa fa-fw footericon" :class="popover.icon" slot="reference"></i>
         </el-popover>
-        <a href="https://github.com/kirazhy/kirazhy.github.io"><i class="fa fa-fw fa-github footericon"></i></a>
+        <a v-for="link in links" :href="link.href" target="_blank"><i class="fa fa-fw f footericon" :class="link.icon"></i></a>
       </div>
     </footer>
   </div>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="the bus records of mine">
+  <meta name="author" content="zhy">
+  <title>Bus Records</title>
+  <!-- 引入reset初始化样式 -->
+  <link href="../static/css/reset.css" rel="stylesheet">
+  <!-- 引入element组件库样式 -->
+  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <!-- 引入当前页面样式 -->
+  <link href="../static/css/busRecord.css" rel="stylesheet">
+  <!-- 引入jQuery -->
+  <script src="../static/js/lib/jquery-3.2.1.js"></script>
+  <!-- 引入Vue.js -->
+  <script src="../static/js/lib/vue-2.2.6.js"></script>
+  <!-- 引入element组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入echarts.js-->
+  <script src="../static/js/lib/echarts.common.min-3.5.4.js"></script>
+</head>
+
+<body>
+  <div id="bus-record">
+    <el-tabs type="border-card" @tab-click="onTabClick">
+      <el-tab-pane label="986到达速度">
+        <el-col :span="12">
+          <el-card>
+            <div id="come-speed" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="come_speed" label="到达速度"></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+      <el-tab-pane label="986乘客规模">
+        <el-col :span="12">
+          <el-card>
+            <div id="people-num" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="people_num" label="乘客规模"></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+      <el-tab-pane label="十八里店桥拥堵程度">
+        <el-col :span="12">
+          <el-card>
+            <div id="congestion-degree" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="congestion_degree" label="拥堵程度"></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+      <el-tab-pane label="横街子前是否有座">
+        <el-col :span="12">
+          <el-card>
+            <div id="seat" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="seat" label="是否有座"></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+      <el-tab-pane label="路上时间">
+        <el-col :span="12">
+          <el-card>
+            <div id="traval-time" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="travel_time" label="路上时间" sortable></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
+  <script src="../static/js/zhy/busRecord.js"></script>
+</body>
+
+</html>
