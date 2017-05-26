@@ -111,3 +111,10 @@ acronym {
 a {
   text-decoration: none;
 }
+
+
+/*隐藏元素*/
+
+[v-cloak] {
+  visibility: hidden;
+}

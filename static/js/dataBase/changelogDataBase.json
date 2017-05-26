@@ -1,0 +1,31 @@
+const changelog_database = {
+  change_logs: [{
+    version: '1.0.0',
+    date: '2017.4.11',
+    change: '完成了页面的雏形'
+    }, {
+    version: '1.1.0',
+    date: '2017.4.13',
+    change: '添加了个人简历页面'
+    }, {
+    version: '1.1.1',
+    date: '2017.4.21',
+    change: '使用Font Awesome图表库，并且在nav中添加了hover功能使图标旋转'
+    }, {
+    version: '1.2.0',
+    date: '2017.4.28',
+    change: '设计并实现了homepage页面，并且添加了changelog页面'
+    }, {
+    version: '1.2.1',
+    date: '2017.5.16',
+    change: '调整了页眉标题文字，添加页脚微博、LinkedIn、facebook链接，基本完成了公交记录页面'
+    }, {
+    version: '1.2.2',
+    date: '2017.5.22',
+    change: '添加了json数据库文件，使用v-text和v-cloak来减少页面闪烁'
+    }, {
+    version: '1.2.3',
+    date: '2017.5.26',
+    change: '添加google分析，使用计算属性代替函数内变量，使用let代替var，添加了换乘前公交类型图，添加了柱状图和饼图的切换功能'
+    }]
+}

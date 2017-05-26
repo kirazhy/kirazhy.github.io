@@ -11,7 +11,7 @@
   <!-- 引入reset初始化样式 -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <!-- 引入element组件库样式 -->
-  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <link href="http://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
   <!-- 引入font-awesome图标库-->
   <link href="../static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
@@ -21,20 +21,19 @@
   <!-- 引入Vue.js -->
   <script src="../static/js/lib/vue-2.2.6.js"></script>
   <!-- 引入element组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-
+  <script src="http://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入当前页面的数据库-->
+  <script src="../static/js/dataBase/changelogDataBase.json"></script>
 </head>
 
 <body>
   <div id="change-log">
-    <el-carousel :interval="400000" type="card" indicator-position="none" height="200px">
-      <el-carousel-item v-for="change_log in change_logs">
-        <div>
-          <h1>{{change_log.version}}</h1>
-          <h3>{{change_log.change}}</h3>
-        </div>
-      </el-carousel-item>
-    </el-carousel>
+    <el-collapse>
+      <el-collapse-item v-for="change_log in change_logs" :title="change_log.version" :name="change_log.version">
+        <div>更新日期：{{change_log.date}}</div>
+        <div>更新内容：{{change_log.change}}</div>
+      </el-collapse-item>
+    </el-collapse>
   </div>
 </body>
 <script src="../static/js/zhy/changeLog.js"></script>

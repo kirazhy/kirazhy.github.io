@@ -11,7 +11,7 @@
   <!-- 引入reset初始化样式 -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <!-- 引入element组件库样式 -->
-  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <link href="http://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
   <link href="../static/css/busRecord.css" rel="stylesheet">
   <!-- 引入jQuery -->
@@ -19,17 +19,23 @@
   <!-- 引入Vue.js -->
   <script src="../static/js/lib/vue-2.2.6.js"></script>
   <!-- 引入element组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://unpkg.com/element-ui/lib/index.js"></script>
   <!-- 引入echarts.js-->
   <script src="../static/js/lib/echarts.common.min-3.5.4.js"></script>
+  <!-- 引入当前页面的数据库-->
+  <script src="../static/js/dataBase/busRecordDataBase.json"></script>
 </head>
 
 <body>
-  <div id="bus-record">
-    <el-tabs type="border-card" @tab-click="onTabClick">
-      <el-tab-pane label="986到达速度">
+  <div id="bus-record" v-cloak>
+    <el-tabs v-model="active_name" type="border-card" @tab-click="onTabClick">
+      <el-tab-pane label="986到达速度" name="come-speed">
         <el-col :span="12">
           <el-card>
+            <el-button-group>
+              <el-button @click="drawComeSpeed(2)">切换为饼图</el-button>
+              <el-button @click="drawComeSpeed(1)">切换为柱状图</el-button>
+            </el-button-group>
             <div id="come-speed" class="chart"></div>
           </el-card>
         </el-col>
@@ -42,9 +48,13 @@
           </el-card>
         </el-col>
       </el-tab-pane>
-      <el-tab-pane label="986乘客规模">
+      <el-tab-pane label="986乘客规模" name="people-num">
         <el-col :span="12">
           <el-card>
+            <el-button-group>
+              <el-button @click="drawPeopleNum(2)">切换为饼图</el-button>
+              <el-button @click="drawPeopleNum(1)">切换为柱状图</el-button>
+            </el-button-group>
             <div id="people-num" class="chart"></div>
           </el-card>
         </el-col>
@@ -57,9 +67,13 @@
           </el-card>
         </el-col>
       </el-tab-pane>
-      <el-tab-pane label="十八里店桥拥堵程度">
+      <el-tab-pane label="十八里店桥拥堵程度" name="congestion-degree">
         <el-col :span="12">
           <el-card>
+            <el-button-group>
+              <el-button @click="drawCongestionDegree(2)">切换为饼图</el-button>
+              <el-button @click="drawCongestionDegree(1)">切换为柱状图</el-button>
+            </el-button-group>
             <div id="congestion-degree" class="chart"></div>
           </el-card>
         </el-col>
@@ -72,7 +86,7 @@
           </el-card>
         </el-col>
       </el-tab-pane>
-      <el-tab-pane label="横街子前是否有座">
+      <el-tab-pane label="横街子前是否有座" name="seat">
         <el-col :span="12">
           <el-card>
             <div id="seat" class="chart"></div>
@@ -80,14 +94,14 @@
         </el-col>
         <el-col :span="12">
           <el-card>
-            <el-table :data="records" border>
+            <el-table :data="seat_records" border>
               <el-table-column prop="date" label="日期"></el-table-column>
               <el-table-column prop="seat" label="是否有座"></el-table-column>
             </el-table>
           </el-card>
         </el-col>
       </el-tab-pane>
-      <el-tab-pane label="路上时间">
+      <el-tab-pane label="路上时间" name="traval-time">
         <el-col :span="12">
           <el-card>
             <div id="traval-time" class="chart"></div>
@@ -98,6 +112,25 @@
             <el-table :data="records" border>
               <el-table-column prop="date" label="日期"></el-table-column>
               <el-table-column prop="travel_time" label="路上时间" sortable></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-tab-pane>
+      <el-tab-pane label="换乘前公交类型" name="bus-type">
+        <el-col :span="12">
+          <el-card>
+            <el-button-group>
+              <el-button @click="drawBusType(2)">切换为饼图</el-button>
+              <el-button @click="drawBusType(1)">切换为柱状图</el-button>
+            </el-button-group>
+            <div id="bus-type" class="chart"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card>
+            <el-table :data="bus_type_records" border>
+              <el-table-column prop="date" label="日期"></el-table-column>
+              <el-table-column prop="bus_type" label="公交类型"></el-table-column>
             </el-table>
           </el-card>
         </el-col>

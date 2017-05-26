@@ -11,7 +11,7 @@
   <!-- 引入reset初始化样式 -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <!-- 引入element组件库样式 -->
-  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <link href="http://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
   <link href="../static/css/resume.css" rel="stylesheet">
   <!-- 引入jQuery -->
@@ -19,38 +19,38 @@
   <!-- 引入Vue.js -->
   <script src="../static/js/lib/vue-2.2.6.js"></script>
   <!-- 引入element组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-
+  <script src="http://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入当前页面的数据库-->
+  <script src="../static/js/dataBase/resumeDataBase.json"></script>
 </head>
 
 <body>
-  <div id="resume">
+  <div id="resume" v-cloak>
     <div>
-      <header>个人简历</header>
       <el-tabs type="border-card">
-        <el-tab-pane label="基本信息">
+        <el-tab-pane label="基本信息" v-cloak>
           <el-form label-position="left" class="personal-info" inline>
             <el-form-item label="中文名">
-              <span>{{personal_info.name_cn}}</span>
+              <span v-text="personal_info.name_cn"></span>
             </el-form-item>
             <el-form-item label="英文名">
-              <span>{{personal_info.name_en}}</span>
+              <span v-text="personal_info.name_en"></span>
             </el-form-item>
             <el-form-item label="性别">
-              <span>{{personal_info.gender}}</span>
+              <span v-text="personal_info.gender"></span>
             </el-form-item>
             <el-form-item label="出生日期">
-              <span>{{personal_info.birth}}</span>
+              <span v-text="personal_info.birth"></span>
             </el-form-item>
             <el-form-item label="政治面貌">
-              <span>{{personal_info.political}}</span>
+              <span v-text="personal_info.political"></span>
             </el-form-item>
             <el-form-item label="联系电话">
-              <span>{{personal_info.tel}}</span>
+              <span v-text="personal_info.tel"></span>
             </el-form-item>
           </el-form>
         </el-tab-pane>
-        <el-tab-pane label="教育经历">
+        <el-tab-pane label="教育经历" v-cloak>
           <el-table :data="education_information" border>
             <el-table-column prop="duration" label="年份" width="180"></el-table-column>
             <el-table-column prop="school" label="学校"></el-table-column>
@@ -59,16 +59,16 @@
             <el-table-column prop="degree" label="学位"></el-table-column>
           </el-table>
         </el-tab-pane>
-        <el-tab-pane label="项目经验">
+        <el-tab-pane label="项目经验" v-cloak>
           <el-table :data="project_experience" border>
             <el-table-column type="expand">
               <template scope="props">
                 <el-form label-position="left" class="project-table-expand" inline>
                   <el-form-item label="项目描述">
-                    <span>{{props.row.description}}</span>
+                    <span v-text="props.row.description"></span>
                   </el-form-item>
                   <el-form-item label="项目成果">
-                    <span>{{props.row.outcome}}</span>
+                    <span v-text="props.row.outcome"></span>
                   </el-form-item>
                 </el-form>
               </template>
@@ -79,12 +79,12 @@
             <el-table-column prop="size" label="团队规模"></el-table-column>
           </el-table>
         </el-tab-pane>
-        <el-tab-pane label="专业技能">
+        <el-tab-pane label="专业技能" v-cloak>
           <el-table :data="professional_skill" border>
             <el-table-column prop="skill" label="技能"></el-table-column>
             <el-table-column prop="level" label="等级" width="200" :filters="level_filter" :filter-method="filterTag">
               <template scope="props">
-                  <el-tag :type="props.row.level === '了解' ? 'gray' : props.row.level === '熟悉' ? 'primary' : props.row.level === '掌握' ? 'success' : 'danger'">{{props.row.level}}</el-tag>
+                  <el-tag :type="props.row.level === '了解' ? 'gray' : props.row.level === '熟悉' ? 'primary' : props.row.level === '掌握' ? 'success' : 'danger'" v-text="props.row.level"></el-tag>
               </template>
             </el-table-column>
           </el-table>

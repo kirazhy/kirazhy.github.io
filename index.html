@@ -11,7 +11,7 @@
   <!-- 引入reset初始化样式 -->
   <link href="./static/css/reset.css" rel="stylesheet">
   <!-- 引入element组件库样式 -->
-  <link href="https://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
+  <link href="http://unpkg.com/element-ui/lib/theme-default/index.css" rel="stylesheet">
   <!-- 引入font-awesome图标库-->
   <link href="./static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
@@ -21,11 +21,29 @@
   <!-- 引入Vue.js -->
   <script src="./static/js/lib/vue-2.2.6.js"></script>
   <!-- 引入element组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入当前页面的数据库-->
+  <script src="./static/js/dataBase/baseDataBase.json"></script>
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-99972607-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 
 <body>
-  <div id="base">
+  <div id="base" v-cloak>
     <!--页眉-->
     <header>
       <a href="./template/homePage.html" target="content"><img src="./static/img/myPhoto.png"></a>
@@ -53,8 +71,8 @@
       <!--个人信息-->
       <div id="footer-social">
         <el-popover v-for="popover in popovers" placement="top" width="200" popper-class="footer-popover" trigger="hover">
-          <div class="footer-popover-title">{{popover.title}}</div>
-          <p v-for="content in popover.contents">{{content}}</p>
+          <div class="footer-popover-title" v-text="popover.title"></div>
+          <p v-for="content in popover.contents" v-text="content"></p>
           <i class="fa fa-fw footericon" :class="popover.icon" slot="reference"></i>
         </el-popover>
         <a v-for="link in links" :href="link.href" target="_blank"><i class="fa fa-fw f footericon" :class="link.icon"></i></a>
