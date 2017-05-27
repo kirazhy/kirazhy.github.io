@@ -1,12 +1,6 @@
 #resume {
   height: 1500px;
 }
-
-header {
-  font-size: 20px;
-  text-align: center;
-}
-
 .project-table-expand label,
 .personal-info label {
   color: lightgray;

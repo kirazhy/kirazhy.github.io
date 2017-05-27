@@ -7,8 +7,7 @@ const base = new Vue({
   methods: {
     //上传服务器时调用
     changeFrameHeight: function (event) {
-      var main_height = $(event.target).contents().find("body").height();
-      $(event.target).height(main_height);
+      $(event.target).height($(event.target).contents().find("body").height());
     },
     //鼠标进入menu则i旋转
     iSpin: function (event) {

@@ -1,8 +1,3 @@
-:root {
-  /*走马灯高度*/
-  --el-carousel_height: 200px;
-}
-
 .el-carousel {
   width: 900px;
   margin: 0 auto;
