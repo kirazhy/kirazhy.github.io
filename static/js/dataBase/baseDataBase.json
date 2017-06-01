@@ -1,6 +1,6 @@
 const base_database = {
   //版本
-  version: '1.2.3',
+  version: '1.2.41',
   //导航栏
   navs: [{
     index: '1',
@@ -19,6 +19,11 @@ const base_database = {
     href: './template/busRecord.html'
       }, {
     index: '4',
+    icon: 'fa-smile-o',
+    title: '扫雷',
+    href: './template/winMine.html'
+      }, {
+    index: '5',
     icon: 'fa-cloud-upload',
     title: '更新日志',
     href: './template/changeLog.html'

@@ -3,6 +3,8 @@ const base = new Vue({
   data: base_database,
   mounted: function () {
     this.isChrome();
+    //异步加载iframe
+    $('iframe').attr('src', './template/homePage.html');
   },
   methods: {
     //上传服务器时调用
@@ -19,19 +21,15 @@ const base = new Vue({
     },
     //浏览器检测
     isChrome: function () {
-      if (!(window.navigator.userAgent.indexOf("Chrome") !== -1)) {
-        this.$notify({
-          title: 'Warning',
-          message: 'Please use the latest Chrome Browser',
-          type: 'warning'
-        });
-      } else {
-        this.$notify({
-          title: 'Welcome',
-          message: 'Welcome to my Personal Websit',
-          type: 'success'
-        });
-      }
+      this.$notify((window.navigator.userAgent.indexOf("Chrome") === -1) ? {
+        title: 'Warning',
+        message: 'Please use the latest Chrome Browser',
+        type: 'warning'
+      } : {
+        title: 'Welcome',
+        message: 'Welcome to my Personal Websit',
+        type: 'success'
+      });
     }
   }
 });

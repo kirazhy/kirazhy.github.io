@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="the changelogs of my website">
+  <meta name="description" content="game 'winMine',a bit difficult">
   <meta name="author" content="zhy">
-  <title>change Logs</title>
+  <title>New HMTL document by NewJect</title>
   <!-- 引入reset初始化样式 -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <!-- 引入element组件库样式 -->
@@ -15,7 +15,7 @@
   <!-- 引入font-awesome图标库-->
   <link href="../static/css/font-awesome.css" rel="stylesheet">
   <!-- 引入当前页面样式 -->
-  <link href="../static/css/changeLog.css" rel="stylesheet">
+  <link href="../static/css/winMine.css" rel="stylesheet">
   <!-- 引入jQuery -->
   <script src="../static/js/lib/jquery-3.2.1.js"></script>
   <!-- 引入Vue.js -->
@@ -23,20 +23,26 @@
   <!-- 引入element组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <!-- 引入当前页面的数据库-->
-  <script src="../static/js/dataBase/changelogDataBase.json"></script>
+  <script src="../static/js/dataBase/winMineDataBase.json"></script>
+
 </head>
 
 <body>
-  <div id="change-log">
-    <el-collapse>
-      <el-collapse-item v-for="change_log in change_logs" :title="change_log.version" :name="change_log.version">
-        <div>更新日期：{{change_log.date}}</div>
-        <div>更新内容：{{change_log.change}}</div>
-      </el-collapse-item>
-    </el-collapse>
+  <div id="win-mine">
+    <div class="border-up mine-main">
+      <div class="winMine-head border-down">
+        <div class="mine-count border-down" v-text="mine_count"></div>
+        <el-button @click="start" class="start-button"><i class="fa fa-play"></i></el-button>
+      </div>
+      <table class="winMine-body border-down">
+        <tr v-for="row in row_count">
+          <td v-for="col in col_count" class="mine-box border-up" :name="row + '-' +col" @mousedown="boxClick"></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 <!-- 引入当前页面脚本 -->
-<script src="../static/js/zhy/changeLog.js"></script>
+<script src="../static/js/zhy/winMine.js"></script>
 
 </html>

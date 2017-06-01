@@ -1,0 +1,8 @@
+const winMine_data_base = {
+  //列
+  col_count: 9,
+  //行
+  row_count: 9,
+  //标记后剩余雷数
+  mine_count: 10
+}

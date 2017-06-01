@@ -28,8 +28,16 @@ const changelog_database = {
     date: '2017.5.26',
     change: '添加google分析，使用计算属性代替函数内变量，使用let代替var，添加了换乘前公交类型图，添加了柱状图和饼图的切换功能'
     }, {
-    version: '1.2.4',
+    version: '1.2.31',
     date: '2017.5.27',
     change: '添加twitter链接'
+    }, {
+    version: '1.2.4',
+    date: '2017.5.31',
+    change: '开始制作扫雷游戏'
+    }, {
+    version: '1.2.41',
+    date: '2017.6.1',
+    change: '完成扫雷的坐标方法，可以识别地雷位置'
     }]
 }

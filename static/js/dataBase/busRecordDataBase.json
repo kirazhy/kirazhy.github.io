@@ -104,6 +104,13 @@ const bus_record_database = {
     people_num: '中',
     congestion_degree: '通畅',
     travel_time: 130
+    }, {
+    date: '2017.5.31',
+    bus_type: '300快',
+    come_speed: '慢+',
+    people_num: '多+',
+    congestion_degree: '通畅',
+    travel_time: 95
     }],
   bus_type_level: ['地铁', '300', '300快'],
   come_speed_level: ['快', '快+', '中', '中+', '慢', '慢+'],
